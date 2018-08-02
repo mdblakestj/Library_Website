@@ -27,6 +27,18 @@ AuthorSchema
 });
 
 AuthorSchema
+.virtual('formatted_date_of_birth')
+.get(function(){
+  return moment(this.date_of_birth).format('MMM Do, YYYY');
+});
+
+AuthorSchema
+.virtual('formatted_date_of_death')
+.get(function(){
+  return this.date_of_death ? moment(this.date_of_death).format('YYYY-MM-DD') : '';
+});
+
+AuthorSchema
 .virtual('lifespan')
 .get(function () {
   var lifetime_string='';
