@@ -21,7 +21,7 @@ BookInstanceSchema
 });
 
 BookInstanceSchema
-.virtual('due_back_formated')
+.virtual('due_back_formatted')
 .get(function(){
   return moment(this.due_back).format('MMM Do, YYYY');
 });
